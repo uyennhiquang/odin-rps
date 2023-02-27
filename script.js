@@ -5,7 +5,6 @@ const getComputerChoice = function () {
   const choice = choices[Math.trunc(Math.random() * 3)];
   return choice;
 };
-// console.log(getComputerChoice());
 
 const playRound = function (playerSelection, computerSelection) {
   let winning = false;
@@ -41,7 +40,7 @@ const playRound = function (playerSelection, computerSelection) {
         return 'Please select among "Rock, Paper, Scissors".';
     }
   }
-  // If winning is true, then winner is playerSelection
+  n;
   return `You ${winning ? "Win" : "Lose"}! ${
     winning
       ? playerSelection.replace(
@@ -65,12 +64,6 @@ const playRound = function (playerSelection, computerSelection) {
   }`;
 };
 
-/* 
-const playerSelection = "rock";
-const computerSelection = getComputerChoice();
-
-console.log(playRound(playerSelection, computerSelection)); */
-
 let playerPt = 0;
 let computerPt = 0;
 let result = ``;
@@ -84,7 +77,7 @@ for (let i = 0; i < roundCount; i++) {
   let roundResult = playRound(playerSelection, computerSelection);
   if (roundResult.includes("Lose")) computerPt++;
   else if (roundResult.includes("Win")) playerPt++;
-  else if (roundResult.includes("Please")) roundCount++;
+  else if (roundResult.includes("Please select among")) roundCount++;
 }
 
 const finalScores = `Your score: ${playerPt}\nComputer's score: ${computerPt}`;
