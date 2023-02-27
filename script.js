@@ -71,21 +71,23 @@ const computerSelection = getComputerChoice();
 
 console.log(playRound(playerSelection, computerSelection)); */
 
-for (let i = 0; i < 5; i++) {
+let playerPt = 0;
+let computerPt = 0;
+let result = ``;
+let roundCount = 5;
+
+for (let i = 0; i < roundCount; i++) {
   const playerSelection = prompt('Pick: "Rock, Paper, Scissors"');
   const computerSelection = getComputerChoice();
-
-  let playerPt = 0;
-  let computerPt = 0;
-  let result = ``;
 
   console.log(playRound(playerSelection, computerSelection));
   let roundResult = playRound(playerSelection, computerSelection);
   if (roundResult.includes("Lose")) computerPt++;
   else if (roundResult.includes("Win")) playerPt++;
+  else if (roundResult.includes("Please")) roundCount++;
 }
 
 const finalScores = `Your score: ${playerPt}\nComputer's score: ${computerPt}`;
 if (playerPt === computerPt) result = `You Draw!`;
-else result === `You ${playerPt > computerPt ? "Won" : "Lost"}!`;
-console.log(finalScores + result);
+else result = `You ${playerPt > computerPt ? "Won" : "Lost"}!`;
+console.log(finalScores + "\n" + result);
