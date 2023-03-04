@@ -15,7 +15,18 @@
 </head>
 
 <body>
-
+    <header id="section--header">
+        <p>Player 1: <span class="score--player">0</span></p>
+        <p>Player 2 (CPU): <span class="score--cpu">0</span></p>
+    </header>
+    <section id="section--game">
+        <p>Computer choice: <span class="choice--cpu">...</span></p>
+        <div id="section--choices">
+            <button data-choice="rock" class="choice">Rock</button>
+            <button data-choice="paper" class="choice">Paper</button>
+            <button data-choice="scissors" class="choice">Scissors</button>
+        </div>
+    </section>
     <script src="./script.js" async defer></script>
 </body>
 

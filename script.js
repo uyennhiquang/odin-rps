@@ -69,7 +69,7 @@ let computerPt = 0;
 let result = ``;
 let roundCount = 5;
 
-for (let i = 0; i < roundCount; i++) {
+/* for (let i = 0; i < roundCount; i++) {
   const playerSelection = prompt('Pick: "Rock, Paper, Scissors"');
   const computerSelection = getComputerChoice();
 
@@ -78,7 +78,7 @@ for (let i = 0; i < roundCount; i++) {
   if (roundResult.includes("Lose")) computerPt++;
   else if (roundResult.includes("Win")) playerPt++;
   else if (roundResult.includes("Please select among")) roundCount++;
-}
+} */
 
 const finalScores = `Your score: ${playerPt}\nComputer's score: ${computerPt}`;
 if (playerPt === computerPt) result = `You Draw!`;
