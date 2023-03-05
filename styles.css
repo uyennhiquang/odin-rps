@@ -1,4 +1,22 @@
+@font-face {
+    font-family: MessinaSans;
+    src: url(../fonts/MessinaSans-Light.woff);
+}
+
+@font-face {
+    font-family: MessinaSans;
+    src: url(../fonts/MessinaSans-Bold.woff);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: MessinaSans;
+    src: url(../fonts/MessinaSans-LightItalic.woff);
+    font-style: italic;
+}
+
 * {
+    font-family: MessinaSans, sans-serif;
     padding: 0;
     margin: 0;
 }
@@ -25,9 +43,11 @@
     border: 1px solid black;
     background: white;
     padding: 2rem 0rem;
+    width: 350px;
     font-size: 2.5rem;
     cursor: pointer;
     transition-duration: 0.4s;
+
     flex: auto;
 }
 
