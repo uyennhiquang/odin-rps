@@ -1,4 +1,18 @@
 "use strict";
+const choiceBtn = document.querySelectorAll(".choice");
+let playerChoice = "";
+
+let playerPt = 0;
+let computerPt = 0;
+let result = ``;
+let roundCount = 5;
+
+for (let i = 0; i < choiceBtn.length; i++) {
+  choiceBtn[i].addEventListener("click", function () {
+    playerChoice = choiceBtn[i].getAttribute("data-choice");
+    console.log(playerChoice);
+  });
+}
 
 const getComputerChoice = function () {
   const choices = ["rock", "paper", "scissors"];
@@ -63,11 +77,6 @@ const playRound = function (playerSelection, computerSelection) {
         )
   }`;
 };
-
-let playerPt = 0;
-let computerPt = 0;
-let result = ``;
-let roundCount = 5;
 
 /* for (let i = 0; i < roundCount; i++) {
   const playerSelection = prompt('Pick: "Rock, Paper, Scissors"');
