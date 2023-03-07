@@ -1,18 +1,18 @@
 "use strict";
-const choiceBtn = document.querySelectorAll(".choice");
+
 let playerChoice = "";
+let computerChoice = "";
+let roundResult = "";
 
 let playerPt = 0;
 let computerPt = 0;
 let result = ``;
 let roundCount = 5;
 
-for (let i = 0; i < choiceBtn.length; i++) {
-  choiceBtn[i].addEventListener("click", function () {
-    playerChoice = choiceBtn[i].getAttribute("data-choice");
-    console.log(playerChoice);
-  });
-}
+// DOM variables
+const choiceBtn = document.querySelectorAll(".choice");
+const playerChoiceDisplay = document.getElementById("choice--player");
+const computerChoiceDisplay = document.getElementById("choice--cpu");
 
 const getComputerChoice = function () {
   const choices = ["rock", "paper", "scissors"];
@@ -26,13 +26,14 @@ const playRound = function (playerSelection, computerSelection) {
   playerSelection = playerSelection.toLowerCase();
 
   if (playerSelection === computerSelection)
-    return `${playerSelection.replace(
+    /* return `${playerSelection.replace(
       playerSelection[0],
       playerSelection[0].toUpperCase()
     )} vs ${computerSelection.replace(
       computerSelection[0],
       computerSelection[0].toUpperCase()
-    )}. You Draw!`;
+    )}. You Draw!`; */
+    return "draw";
   else {
     switch (playerSelection) {
       case "rock":
@@ -54,8 +55,7 @@ const playRound = function (playerSelection, computerSelection) {
         return 'Please select among "Rock, Paper, Scissors".';
     }
   }
-  n;
-  return `You ${winning ? "Win" : "Lose"}! ${
+  /* return `You ${winning ? "Win" : "Lose"}! ${
     winning
       ? playerSelection.replace(
           playerSelection[0],
@@ -75,8 +75,37 @@ const playRound = function (playerSelection, computerSelection) {
           computerSelection[0],
           computerSelection[0].toUpperCase()
         )
-  }`;
+  }`; */
+  return winning ? "win" : "lose";
 };
+
+for (let i = 0; i < choiceBtn.length; i++) {
+  choiceBtn[i].addEventListener("click", function () {
+    playerChoice = choiceBtn[i].getAttribute("data-choice");
+    playerChoiceDisplay.innerText = playerChoice.replace(
+      playerChoice[0],
+      playerChoice[0].toUpperCase()
+    );
+
+    computerChoice = getComputerChoice();
+    computerChoiceDisplay.innerText = computerChoice.replace(
+      computerChoice[0],
+      computerChoice[0].toUpperCase()
+    );
+
+    console.log(playerChoice, computerChoice);
+    console.log(roundResult);
+
+    // Work on changing color background of something depending on result
+    /* switch (roundResult) {
+      case "draw":
+      
+      case "win":
+
+      case "lose":
+    } */
+  });
+}
 
 /* for (let i = 0; i < roundCount; i++) {
   const playerSelection = prompt('Pick: "Rock, Paper, Scissors"');
