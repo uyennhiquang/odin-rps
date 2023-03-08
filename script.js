@@ -4,8 +4,8 @@ let playerChoice = "";
 let computerChoice = "";
 let roundResult = "";
 
-let playerPt = 0;
-let computerPt = 0;
+let playerScore = 0;
+let computerScore = 0;
 let result = ``;
 let roundCount = 5;
 
@@ -13,6 +13,8 @@ let roundCount = 5;
 const choiceBtn = document.querySelectorAll(".choice");
 const playerChoiceDisplay = document.getElementById("choice--player");
 const computerChoiceDisplay = document.getElementById("choice--cpu");
+const playerScoreDisplay = document.getElementById("score--player");
+const computerScoreDisplay = document.getElementById("score--cpu");
 
 const getComputerChoice = function () {
   const choices = ["rock", "paper", "scissors"];
@@ -93,17 +95,32 @@ for (let i = 0; i < choiceBtn.length; i++) {
       computerChoice[0].toUpperCase()
     );
 
+    roundResult = playRound(playerChoice, computerChoice);
     console.log(playerChoice, computerChoice);
     console.log(roundResult);
 
-    // Work on changing color background of something depending on result
-    /* switch (roundResult) {
-      case "draw":
-      
-      case "win":
+    // Work on changing color background of something based on result
+    for (let i = 0; i < choiceBtn.length; i++) {
+      choiceBtn[i].style.color = "black";
+    }
 
+    switch (roundResult) {
+      case "win":
+        choiceBtn[i].style.color = "#60b347";
+        ++playerScore;
+        break;
       case "lose":
-    } */
+        choiceBtn[i].style.color = "#FA0415";
+        ++computerScore;
+        break;
+    }
+    playerScoreDisplay.innerText = String(playerScore);
+    computerScoreDisplay.innerText = String(computerScore);
+
+    if (playerScore === 5)
+      document.querySelector("body").style.background = "#60b347";
+    else if (computerScore === 5)
+      document.querySelector("body").style.background = "pink";
   });
 }
 
@@ -117,8 +134,3 @@ for (let i = 0; i < choiceBtn.length; i++) {
   else if (roundResult.includes("Win")) playerPt++;
   else if (roundResult.includes("Please select among")) roundCount++;
 } */
-
-const finalScores = `Your score: ${playerPt}\nComputer's score: ${computerPt}`;
-if (playerPt === computerPt) result = `You Draw!`;
-else result = `You ${playerPt > computerPt ? "Won" : "Lost"}!`;
-console.log(finalScores + "\n" + result);
