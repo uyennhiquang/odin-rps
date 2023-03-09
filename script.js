@@ -7,14 +7,20 @@ let roundResult = "";
 let playerScore = 0;
 let computerScore = 0;
 let result = ``;
-let roundCount = 5;
+
+let playing = false;
 
 // DOM variables
 const choiceBtn = document.querySelectorAll(".choice");
+
 const playerChoiceDisplay = document.getElementById("choice--player");
 const computerChoiceDisplay = document.getElementById("choice--cpu");
 const playerScoreDisplay = document.getElementById("score--player");
 const computerScoreDisplay = document.getElementById("score--cpu");
+const choiceDisplay = document.getElementById("section--choice-display");
+
+const sectionGame = document.getElementById("section--game");
+const messageResultEl = document.getElementById("message-result");
 
 const getComputerChoice = function () {
   const choices = ["rock", "paper", "scissors"];
@@ -117,20 +123,14 @@ for (let i = 0; i < choiceBtn.length; i++) {
     playerScoreDisplay.innerText = String(playerScore);
     computerScoreDisplay.innerText = String(computerScore);
 
-    if (playerScore === 5)
-      document.querySelector("body").style.background = "#60b347";
-    else if (computerScore === 5)
-      document.querySelector("body").style.background = "pink";
+    if (playerScore === 5) {
+      messageResultEl.innerText = "You Win!";
+      messageResultEl.style.color = "#60b347";
+      messageResultEl.style.fontWeight = "bold";
+    } else if (computerScore === 5) {
+      messageResultEl.innerText = "You Lose!";
+      messageResultEl.style.color = "#FA0415";
+      messageResultEl.style.fontWeight = "bold";
+    }
   });
 }
-
-/* for (let i = 0; i < roundCount; i++) {
-  const playerSelection = prompt('Pick: "Rock, Paper, Scissors"');
-  const computerSelection = getComputerChoice();
-
-  console.log(playRound(playerSelection, computerSelection));
-  let roundResult = playRound(playerSelection, computerSelection);
-  if (roundResult.includes("Lose")) computerPt++;
-  else if (roundResult.includes("Win")) playerPt++;
-  else if (roundResult.includes("Please select among")) roundCount++;
-} */
