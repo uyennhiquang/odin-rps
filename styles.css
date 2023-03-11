@@ -1,17 +1,17 @@
 @font-face {
     font-family: MessinaSans;
-    src: url(../fonts/MessinaSans-Light.woff);
+    src: url(./fonts/MessinaSans-Light.woff);
 }
 
 @font-face {
     font-family: MessinaSans;
-    src: url(../fonts/MessinaSans-Bold.woff);
+    src: url(./fonts/MessinaSans-Bold.woff);
     font-weight: bold;
 }
 
 @font-face {
     font-family: MessinaSans;
-    src: url(../fonts/MessinaSans-LightItalic.woff);
+    src: url(./fonts/MessinaSans-LightItalic.woff);
     font-style: italic;
 }
 
